@@ -82,19 +82,6 @@
             </div>
         </div>
       </div>
-      <div class="">
-        <!-- introduction -->
-        <div class="row">
-            <div class="col">
-            <hr>
-            <h4 class="name text-center">Note: We display videos in a lower resolution to fit into screen. </h4>
-            <hr>
-            <h4 class="name text-center">Each video also contains a button to view in full-screen. </h4>
-            <hr>
-            <h4 class="name text-center">To view videos in full-resolution, please click the .mp4 files. </h4>
-            </div>
-        </div>
-      </div>
 
       <div class="paper-notes">
         <!-- sub title -->
@@ -111,6 +98,8 @@
             <div class="col">
             <hr>
             <h4 class="name text-center">In-domain Video Synthesis</h4>
+            <hr>
+            <h5 class="name text-left">Note: We display videos in a lower resolution to fit into screen. Each video also contains a button to view in full-screen. To view videos in full-resolution, please click the .mp4 files.</h5> 
             </div>
         </div>
       </div>
@@ -242,6 +231,7 @@
             <div class="col">
             <hr>
             <h4 class="name text-center">Cross-domain Video Synthesis</h4>
+            <hr>
             <h5 class="name text-left">As our image generator is pre-trained, we may use an image generator that is trained on a given domain, and learn the motion generator parameters using videos from a different domain.</h5>
             </div>
         </div>
@@ -272,7 +262,7 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <hr><p class="text-center">Figure 15: (FFHQ, VoxCeleb) cross-domain video generation (256x256).
+                    <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation (256x256).
                     Show <a href="FFHQ.mp4" target="_blank">video</a></p>
                   </div>
                 </div>
@@ -292,7 +282,7 @@
             <div class="col">
               <div class="row">
                 <div class="col">
-                  <hr><p class="text-center">Figure 16: (FFHQ, VoxCeleb) cross-domain video generation (1024x1024). Show
+                  <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation (1024x1024). Show
                   <a href="FFHQ_1024.mp4" target="_blank">video</a></p>
                 </div>
               </div>
@@ -310,7 +300,7 @@
         <div class="content-block short-videos-1">
           <div class="row">
             <div class="col">
-              <hr><p class="text-center">Figure 17 & 18: (AFHQ-Dog, VoxCeleb) cross-domain video generation (512x512).
+              <hr><p class="text-center">(AFHQ-Dog, VoxCeleb) cross-domain video generation (512x512).
               We also interpolate 16-frame video to get 32 frames. Show <a href="AFHQ-DOG-512x512.mp4"
               target="_blank">16-frame</a> <a href="AFHQ-DOG-Interpolate_32.mp4" target="_blank">32-frame</a></p>
             </div>
@@ -343,7 +333,7 @@
             <div class="col">
               <div class="row">
                 <div class="col">
-                  <hr><p class="text-center">Figure 19: (AnimeFaces, VoxCeleb) cross-domain video generation (512x512).
+                  <hr><p class="text-center">(AnimeFaces, VoxCeleb) cross-domain video generation (512x512).
                   Show <a href="Anime.mp4" target="_blank">video</a></p>
                 </div>
               </div>
@@ -361,7 +351,7 @@
           <div class="content-block short-videos">
             <div class="row">
               <div class="col">
-                <hr><p class="text-center">Figure 20: (LSUN-Church, TLVDB) cross-domain video generation (256x256). Show <a
+                <hr><p class="text-center">(LSUN-Church, TLVDB) cross-domain video generation (256x256). Show <a
                 href="LSUN-Church.mp4" target="_blank">video</a></p>
               </div>
             </div>
@@ -372,108 +362,6 @@
                 </video>
             </div>
           </div>
-      <div class="paper-notes">
-        <!-- sub title -->
-        <div class="row">
-          <div class="col">
-            <h2 class="name text-center">Video samples of other baselines</h2>
-          </div>
-        </div>
-      </div>
-
-          <!-- TGANv2 on FaceForensics -->
-          <div class="content-block short-videos">
-            <div class="row">
-              <div class="col">
-                <hr><p class="text-center">TGANv2 on FaceForensics (256x256). Show <a href="TGANv2_faceforensics.mp4"
-                target="_blank">TGAN res</a></p>
-              </div>
-            </div>
-            <div class="row">
-                <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                  <source src="TGANv2_faceforensics.mp4" type="video/mp4">
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
-            </div>
-          </div>
-            <!-- DTVNet on Sky Time-lapse, 128 Resolution -->
-          <div class="content-block short-videos-2">
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <hr><p class="text-center">DTVNet on Sky Time-lapse (128x128). Show <a
-                    href="DTVNet_skytimelapse.mp4" target="_blank">DTVNet res</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="DTVNet_skytimelapse.mp4"type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-      <div class="paper-notes">
-        <!-- sub title -->
-        <div class="row">
-          <div class="col">
-            <h2 class="name text-center">Video samples used in Amazon Mechanical Turk experiments</h2>
-          </div>
-        </div>
-      </div>
-
-          <!-- (FFHQ, VoxCeleb), without contrastive loss -->
-          <div class="content-block short-videos">
-            <div class="row">
-              <div class="col">
-                <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation, w/o contr loss (256x256).
-                Show <a href="FFHQ_without_contr_loss.mp4" target="_blank">video</a></p>
-              </div>
-            </div>
-            <div class="row">
-                <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                  <source src="FFHQ_without_contr_loss.mp4" type="video/mp4">
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
-            </div>
-          </div>
-
-        <!-- (FFHQ, VoxCeleb), without mutual info loss -->
-        <div class="content-block short-videos-2">
-          <div class="row">
-            <div class="col">
-              <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation, w/ (left) and w/o (right)
-              mutual info loss. Show <a href="FFHQ_with_mutual_loss.mp4" target="_blank">w/ mutual loss</a> <a
-              href="FFHQ_without_mutual_loss.mp4" target="_blank">w/o mutual loss</a></p>
-            </div>
-          </div>
-          <div class = "row">
-            <!-- 32-frame -->
-            <div class="col">
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="FFHQ_with_mutual_loss.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="FFHQ_without_mutual_loss.mp4" type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-                </div>
-            </div>
-          </div>
-      </div>
 
     <!-- Bootstrap bits -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
