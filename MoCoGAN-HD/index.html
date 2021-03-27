@@ -1,377 +1,342 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-          crossorigin="anonymous">
-    <style>
-      .paper-title {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      .paper-notes {
-        background-color:#E0E0E0;
-      }
-      .short-videos video {
-        width: 640px;
-        height:640px;
-        margin:0 auto;
-      }
+<!DOCTYPE html>
+<html>
 
-      .short-videos-1 video {
-        width: 512px;
-        height:512px;
-        margin:0 auto;
-        padding: 1em;
-      }
-      .short-videos-2 video {
-        width: 512px;
-        height:512px;
-        margin:0 auto;
-        padding: 1em;
-      }
-      .short-videos-3 video {
-        width: 320px;
-        height:320px;
-        margin:0 auto;
-      }
-      .short-videos-4 video {
-        width: 768px;
-        height:768px;
-        margin:0 auto;
-      }
-      .content-block {
-        padding-left: 2em;
-        padding-right: 2em;
-        padding-bottom: 2em;
-      }
-      .overview-video {
-        background-color: rgb(240,240,240);
-      }
-      .overview-video .video-col {
-        margin-left: 2em;
-        margin-right: 2em;
-      }
-    </style>
-  </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="A Good Image Generator Is What You Need for High-Resolution Video Synthesis.">
+    <meta name="keywords" content="MocoGAN-HD, Video Synthesis">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Good Image Generator Is What You Need for High-Resolution Video Synthesis</title>
 
-  <body>
-    <div class="container">
-      <div class="paper-title">
-        <!-- title -->
-        <div class="row">
-          <div class="col">
-            <h1 class="name text-center">A GOOD IMAGE GENERATOR IS WHAT YOU NEED FOR HIGH-RESOLUTION VIDEO SYNTHESIS</h1>
-            <h4 class="name text-center"><a href="https://scholar.google.com/citations?user=DxPjkDoAAAAJ&hl=en" target="_blank">Yu Tian</a><sup>1</sup>, <a href="https://alanspike.github.io/" target="_blank">Jian Ren</a><sup>2</sup>, <a href="https://mlchai.com/" target="_blank">Menglei Chai</a><sup>2</sup>, <a href="https://kyleolsz.github.io/" target="_blank">Kyle Olszewski</a><sup>2</sup>, <a href="https://sites.google.com/site/xipengcshomepage/home" target="_blank">Xi Peng</a><sup>3</sup>, <a href="https://www.cs.rutgers.edu/~dnm/" target="_blank">Dimitris N. Metaxas</a><sup>1</sup>, <a href="http://www.stulyakov.com/" target="_blank">Sergey Tulyakov</a><sup>2</sup></h4>
-            <h4 class="name text-center"><sup>1</sup>Rutgers University, <sup>2</sup>Snap Inc., <sup>3</sup>University of Delaware</h4>
-            
-          </div>
-        </div>
-      </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-      <div class="">
-        <!-- introduction -->
-        <div class="row">
-            <div class="col">
-                <h4 class="name text-left"><strong>Abstract</h4>
-                <h5 class="name text-left">Image and video synthesis are closely related areas aiming at generating content from noise. While rapid progress has been demonstrated in improving imagebased models to handle large resolutions, high-quality renderings, and wide variations in image content, achieving comparable video generation results remains problematic. We present a framework that leverages contemporary image generators to render high-resolution videos. We frame the video synthesis problem as discovering a trajectory in the latent space of a pre-trained and fixed image generator. Not only does such a framework render high-resolution videos, but it also is an order of magnitude more computationally efficient. We introduce a motion generator that discovers the desired trajectory, in which content and motion are disentangled. With such a representation, our framework allows for a broad range of applications, including content and motion manipulation. Furthermore, we introduce a new task, which we call cross-domain video synthesis, in which the image and motion generators are trained on disjoint datasets belonging to different domains. This allows for generating moving objects for which the desired video data is not available. Extensive experiments on various datasets demonstrate the advantages of our methods over existing video generation techniques. Code will be released at <a href="https://github.com/snap-research/MoCoGAN-HD" target="_blank">https://github.com/snap-research/MoCoGAN-HD</a></h5>
-            </div>
-        </div>
-      </div>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-      <div class="paper-notes">
-        <!-- sub title -->
-        <div class="row">
-          <div class="col">
-            <h3 class="name text-center">Video Samples of MoCoGAN-HD</h3>
-          </div>
-        </div>
-      </div>
-        
-       <div class="">
-        <!-- introduction -->
-        <div class="row">
-            <div class="col">
-            <hr>
-            <h4 class="name text-center">In-domain Video Synthesis</h4>
-            <hr>
-            <h5 class="name text-left">Note: We display videos in a lower resolution to fit into screen. Each video also contains a button to view in full-screen. To view videos in full-resolution, please click the .mp4 files.</h5> 
-            </div>
-        </div>
-      </div>
+        gtag('js', new Date());
 
-      <!-- Short videos 1-->
-      <div class="content-block short-videos">
-        <div class="row">
-          <!-- UCF-101, 256 Resolution -->
-          <div class="col">
-            <div class="row">
-              <div class="col">
-                <hr><p class="text-center">UCF-101 video generation (256x256). Show <a href="UCF-101.mp4" target="_blank">video</a></p>
-              </div>
-            </div>
-            <div class="row">
-                  <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                    <source src="UCF-101.mp4" type="video/mp4">
-                    Sorry, your browser doesn't support embedded videos.
-                  </video>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-block short-videos">
-          <!-- FaceForensics, 256 Resolution -->
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col">
-                <hr><p class="text-center">FaceForensics video generation (256x256). Show <a href="FaceForensics.mp4" target="_blank">video</a></p>
-              </div>
-            </div>
-            <div class="row">
-                  <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                    <source src="FaceForensics.mp4" type="video/mp4">
-                    Sorry, your browser doesn't support embedded videos.
-                  </video>
-                </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Short videos 2-->
-      <div class="content-block short-videos-1">
-        <div class="row">
-          <div class="col">
-            <hr><p class="text-center">Our method can generate long sequences by unrolling the 16-frame trained motion generator for more (32/64) steps.
-            Show <a href="FaceForensics-32.mp4" target="_blank">32-frame</a> <a href="FaceForensics-64.mp4" target="_blank">64-frame</a></p>
-          </div>
-        </div>
-        <div class = "row">
-          <!-- 32-frame -->
-          <div class="col">
-            <div class="row">
-                  <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                    <source src="FaceForensics-32.mp4" type="video/mp4">
-                    Sorry, your browser doesn't support embedded videos.
-                  </video>
-                </a>
-            </div>
-          </div>
-          <div class="col">
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="FaceForensics-64.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Short videos 3-->
-        <div class="content-block short-videos-2">
-          <div class="row">
-            <div class="col">
-              <hr><p class="text-center">Each row indicates synthesis diverse motion with the same content, or applying same motion to different content codes. Show <a
-              href="FaceForensics_SameCont_DiffMotion.mp4" target="_blank">same content</a> <a
-              href="FaceForensics_SameMotion_DiffCont.mp4" target="_blank">same motion</a></p>
-            </div>
-          </div>
-          <div class = "row">
-            <!-- 32-frame -->
-            <div class="col">
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="FaceForensics_SameCont_DiffMotion.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="FaceForensics_SameMotion_DiffCont.mp4" type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-                </div>
-            </div>
-          </div>
-          <!-- Short videos 4-->
-                        <!-- Sky Time-lapse, 128 Resolution -->
-          <div class="content-block short-videos-2">
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <hr><p class="text-center">Sky Time-lapse video generation (128x128). Show <a
-                    href="Sky-Time-lapse.mp4" target="_blank">video</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="Sky-Time-lapse.mp4"type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
 
-      <div class="">
-        <!-- introduction -->
-        <div class="row">
-            <div class="col">
-            <hr>
-            <h4 class="name text-center">Cross-domain Video Synthesis</h4>
-            <hr>
-            <h5 class="name text-left">As our image generator is pre-trained, we may use an image generator that is trained on a given domain, and learn the motion generator parameters using videos from a different domain.</h5>
-            </div>
-        </div>
-      </div>
-                        <!-- (FFHQ, VoxCeleb), BigGAN, 128 Resolution -->
-          <div class="content-block short-videos-2">
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation, BigGAN
-                    generator (128x128). Show <a href="FFHQ_BigGAN_128.mp4" target="_blank">video</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="FFHQ_BigGAN_128.mp4"type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
-                        <!-- (FFHQ, VoxCeleb), 256 Resolution -->
-          <div class="content-block short-videos">
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation (256x256).
-                    Show <a href="FFHQ.mp4" target="_blank">video</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="FFHQ.mp4" type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-              </div>
-            </div>
-        </div>
-                    <!-- (FFHQ, VoxCeleb), 1024 Resolution-->
-        <div class="content-block short-videos-4">
-          <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="col">
-                  <hr><p class="text-center">(FFHQ, VoxCeleb) cross-domain video generation (1024x1024). Show
-                  <a href="FFHQ_1024.mp4" target="_blank">video</a></p>
-                </div>
-              </div>
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="FFHQ_1024.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Short videos 5-->
-        <div class="content-block short-videos-1">
-          <div class="row">
-            <div class="col">
-              <hr><p class="text-center">(AFHQ-Dog, VoxCeleb) cross-domain video generation (512x512).
-              We also interpolate 16-frame video to get 32 frames. Show <a href="AFHQ-DOG-512x512.mp4"
-              target="_blank">16-frame</a> <a href="AFHQ-DOG-Interpolate_32.mp4" target="_blank">32-frame</a></p>
-            </div>
-          </div>
-          <div class = "row">
-            <!-- 32-frame -->
-            <div class="col">
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="AFHQ-DOG-512x512.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                      <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                        <source src="AFHQ-DOG-Interpolate_32.mp4" type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                      </video>
-                    </a>
-                </div>
-                </div>
-            </div>
-          </div>
-                    <!-- (AnimeFaces, VoxCeleb), 512 Resolution-->
-        <div class="content-block short-videos-1">
-          <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="col">
-                  <hr><p class="text-center">(AnimeFaces, VoxCeleb) cross-domain video generation (512x512).
-                  Show <a href="Anime.mp4" target="_blank">video</a></p>
-                </div>
-              </div>
-              <div class="row">
-                    <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                      <source src="Anime.mp4" type="video/mp4">
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  </a>
-              </div>
-            </div>
-          </div>
-        </div>
-          <!-- short video 6 -->
-          <div class="content-block short-videos">
-            <div class="row">
-              <div class="col">
-                <hr><p class="text-center">(LSUN-Church, TLVDB) cross-domain video generation (256x256). Show <a
-                href="LSUN-Church.mp4" target="_blank">video</a></p>
-              </div>
-            </div>
-            <div class="row">
-                <video class="embed-responsive-item" autoplay="" controls="" muted="" loop="">
-                  <source src="LSUN-Church.mp4" type="video/mp4">
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
-            </div>
-          </div>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-    <!-- Bootstrap bits -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
-  </body>
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">A Good Image Generator Is What You Need for
+                            High-Resolution Video Synthesis</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=DxPjkDoAAAAJ&hl=en">Yu
+                                    Tian</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://alanspike.github.io">Jian Ren</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://mlchai.com">Menglei Chai</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://kyleolsz.github.io">Kyle Olszewski</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://sites.google.com/site/xipengcshomepage/home">Xi Peng</a><sup>3</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.cs.rutgers.edu/~dnm/">Dimitris N. Metaxas</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="http://www.stulyakov.com/">Sergey Tulyakov</a><sup>2</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Rutgers University,</span>
+                            <span class="author-block"><sup>2</sup>Snap Inc.,</span>
+                            <span class="author-block"><sup>3</sup>University of Delaware</span>
+                        </div>
+                        <h1 style="font-size:23px;font-weight:bold">ICLR 2021, Spotlight</h1>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://openreview.net/forum?id=6puCSjH3hwA"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>OpenReview</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/snap-research/MoCoGAN-HD"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item item-face">
+                        <video poster="" id="face" autoplay controls muted loop height="100%">
+                            <source src="videos/FaceForensics.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-sky">
+                        <video poster="" id="sky" autoplay controls muted loop height="100%">
+                            <source src="videos/Sky-Time-lapse.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-dog">
+                        <video poster="" id="dog" autoplay controls muted loop height="100%">
+                            <source src="videos/AFHQ-DOG-512x512.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-ffhq">
+                        <video poster="" id="ffhq" autoplay controls muted loop height="100%">
+                            <source src="videos/FFHQ_1024.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-anime">
+                        <video poster="" id="anime" autoplay controls muted loop height="100%">
+                            <source src="videos/Anime.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-church">
+                        <video poster="" id="church" autoplay controls muted loop height="100%">
+                            <source src="videos/LSUN-Church.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div align="center">
+            In- and Cross- Domain Video Generation
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-two-thirds">
+                    <h2 class="title is-2">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Image and video synthesis are closely related areas aiming at generating content from noise.
+                            While rapid progress has been demonstrated in improving imagebased models to handle large
+                            resolutions, high-quality renderings, and wide variations in image content, achieving
+                            comparable video generation results remains problematic.
+                        </p>
+                        <p>
+                            We present a framework that
+                            leverages contemporary image generators to render high-resolution videos. We frame the video
+                            synthesis problem as discovering a trajectory in the latent space of a pre-trained and fixed
+                            image generator. Not only does such a framework render high-resolution videos, but it also
+                            is an order of magnitude more computationally efficient. We introduce a motion generator
+                            that discovers the desired trajectory, in which content and motion are disentangled. With
+                            such a representation, our framework allows for a broad range of applications, including
+                            content and motion manipulation. Furthermore, we introduce a new task, which we call
+                            cross-domain video synthesis, in which the image and motion generators are trained on
+                            disjoint datasets belonging to different domains. This allows for generating moving objects
+                            for which the desired video data is not available. Extensive experiments on various datasets
+                            demonstrate the advantages of our methods over existing video generation techniques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <!-- <div class="columns is-centered has-text-centered">
+            <div class="column is-two-thirds">
+                <h2 class="title is-2">Video</h2>
+                <div class="publication-video">
+                    <iframe src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div> -->
+        <!--/ Paper video. -->
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+
+            <div class="columns is-centered">
+
+                <!-- 32 frames -->
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">32-Frames</h2>
+                        <p>
+                            FaceForensics video generation. We generate long sequences by unrolling the 16-frame trained
+                            motion generator
+                            for 32 steps.
+                        </p>
+                        <video id="FaceForensics-32" autoplay controls muted loop height="100%">
+                            <source src="videos/FaceForensics-32.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!--/ 32 frames -->
+
+                <!-- 64 frames -->
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">64-Frames</h2>
+                        <p>
+                            FaceForensics video generation. We generate long sequences by unrolling the 16-frame trained
+                            motion generator
+                            for 64 steps.
+                        </p>
+                        <video id="FaceForensics-64" autoplay controls muted loop height="100%">
+                            <source src="videos/FaceForensics-64.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- 64 frames -->
+
+                <!-- 32 frames -->
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">32-Frames</h2>
+                        <p>
+                            (AFHQ-Dog, VoxCeleb) cross-domain video generation (512x512). We interpolate
+                            16-frame video to get 32 frames.
+                        </p>
+                        <video id="AFHQ-DOG-Interpolate_32" autoplay controls muted loop height="100%">
+                            <source src="videos/AFHQ-DOG-Interpolate_32.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- 32 frames -->
+
+            </div>
+
+
+            <!-- disentangle. -->
+            <div class="columns is-centered">
+                <!-- 32 frames -->
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">Motion Diversity</h2>
+                        <p>
+                            Each row indicates synthesis diverse motion with the same content.
+                        </p>
+                        <video id="FaceForensics_SameCont_DiffMotion" autoplay controls muted loop height="100%">
+                            <source src="videos/FaceForensics_SameCont_DiffMotion.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!--/ 32 frames -->
+
+                <!-- 64 frames -->
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">Content Diversity</h2>
+                        <p>
+                            Each row indicates applying same motion to different content codes.
+                        </p>
+                        <video id="FaceForensics_SameMotion_DiffCont" autoplay controls muted loop height="100%">
+                            <source src="videos/FaceForensics_SameMotion_DiffCont.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- 64 frames -->
+            </div>
+            <!--/ disentangle. -->
+        </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+@inproceedings{
+    tian2021a,
+    title={A Good Image Generator Is What You Need for High-Resolution Video Synthesis},
+    author={Yu Tian and Jian Ren and Menglei Chai and Kyle Olszewski and Xi Peng and Dimitris N. Metaxas and Sergey Tulyakov},
+    booktitle={International Conference on Learning Representations},
+    year={2021},
+    url={https://openreview.net/forum?id=6puCSjH3hwA}
+}
+      </code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div align="center" class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
 </html>
